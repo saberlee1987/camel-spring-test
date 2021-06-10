@@ -1,0 +1,39 @@
+
+server:
+  port: 9595
+
+
+
+camel:
+  springboot:
+    main-run-controller: true
+    name: CamelServiceRest
+
+  component:
+    servlet:
+      enabled: true
+      mapping:
+        context-path: ${service.api.base-path}/*
+
+
+
+service:
+  api:
+    base-path: /services/camel
+  log:
+    is-pretty-print-enabled: true
+  employee:
+    url: http://localhost
+    port: 9090
+    endpoint: /employee
+
+
+documentation:
+  swagger:
+    services:
+      - url: http://localhost:9595/services/camel/v2/api-docs
+        name: camel test service
+        version: 1.0
+
+
+
